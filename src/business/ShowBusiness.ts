@@ -52,7 +52,7 @@ export class ShowBusiness {
             }
         })
 
-        const band = await this.bandDatabase.findBandByIdOrName(band_id)
+        const band = await this.bandDatabase.findBandById(band_id)
         if (!band) {
             throw new Error('Banda não encontrada')
         }

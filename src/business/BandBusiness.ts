@@ -7,13 +7,11 @@ import { BandRepository } from "./BandRepository";
 export class BandBusiness {
     private bandDatabase: BandRepository
     private idGenerator: IdGeneration
-    private hashManager: HashManager
     private authentication: Authenticator
     
     constructor(bandDataImplementation: BandRepository) {
         this.bandDatabase = bandDataImplementation
         this.idGenerator = new IdGeneration()
-        this.hashManager = new HashManager()
         this.authentication = new Authenticator()
     }
     register = async (input: RegisterBandDTO, token: string) => {
@@ -46,14 +44,14 @@ export class BandBusiness {
 
         return true
     }
-    findBandById = async (token: string, id:string, name: string) => {
+    findBandByIdOrName = async (token: string, id:string, name: string) => {
         const tokenExist = this.authentication.getTokenData(token)
         if(!tokenExist){
             throw new Error("Token inválido")
         }
         
         if(id){
-            const result = await this.bandDatabase.findBandByIdOrName(id)
+            const result = await this.bandDatabase.findBandById(id)
             if(!result){
                 throw new Error("Banda não encontrada")
             }
