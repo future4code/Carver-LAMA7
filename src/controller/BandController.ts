@@ -46,13 +46,13 @@ export class BandController {
         const token = req.headers.authorization as string
         try {
             if(id){
-                const result = await this.bandBusiness.findBandById(token, id, name)
+                const result = await this.bandBusiness.findBandByIdOrName(token, id, name)
                 if(!result){
                     throw new Error("Banda não encontrada")
                 }
                 res.status(200).send(result)
             }else if(name){
-                const result = await this.bandBusiness.findBandById(token, id, name)
+                const result = await this.bandBusiness.findBandByIdOrName(token, id, name)
                 
                 if(!result){
                     throw new Error("Banda não encontrada")

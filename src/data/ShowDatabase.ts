@@ -7,20 +7,39 @@ export class ShowDatabase extends BaseDatabase implements ShowRepository{
     insert = async (show: Show) => {
         try {
             await BaseDatabase.connection(this.TABLE_NAME)
-                .insert(show)
+                .insert({
+                    id: show.id,
+                    week_day: show.week_day,
+                    start_time: show.start_time,
+                    end_time: show.end_time,
+                    band_id: show.band_id
+                })
             return show
         } catch (error: any) {
-            throw new Error("erro ao adicionar show no banco de dados")
+            throw new Error("erro ao adicionar show no banco de dados aaa")
         }
     }
     getAllShows = async () => {
         try {
             const result = await BaseDatabase.connection(this.TABLE_NAME)
                 .select()
-            if (!result[0]) {
+            if (!result) {
                 return null
             }
-            return Show.toShowModel(result[0])
+            return result
+        } catch (error: any) {
+            throw new Error("erro ao tentar buscar shows no banco de dados")
+        }
+    }
+    getAllShowsByDay = async (week_day: string) => {
+        try {
+            const result = await BaseDatabase.connection(this.TABLE_NAME)
+                .select()
+                .where({week_day})
+            if (!result) {
+                return null
+            }
+            return result
         } catch (error: any) {
             throw new Error("erro ao tentar buscar shows no banco de dados")
         }

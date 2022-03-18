@@ -1,3 +1,4 @@
+import { ShowDatabase } from "../data/ShowDatabase";
 import { LoginInputDTO, SignupInputDTO, User } from "../model/User";
 import { Authenticator } from "../services/Authenticator";
 import { HashManager } from "../services/HashManager";
@@ -49,6 +50,9 @@ export class UserBusiness {
     }
     login = async (input: LoginInputDTO) => {
         const {email, password} = input
+        // const show = new ShowDatabase()
+        // const thereIsAShow = await show.getAllShows()
+        // console.log(thereIsAShow)
 
         if(!email || !password){
             throw new Error("Por favor preencha os campos 'e-mail' ou 'senha'")

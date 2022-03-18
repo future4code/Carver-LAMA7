@@ -26,7 +26,7 @@ export class BandDatabase extends BaseDatabase implements BandRepository{
             throw new Error("Erro ao buscar banda pelo nome no banco de dados")
         }
     }
-    findBandByIdOrName = async (id: string) => {
+    findBandById = async (id: string) => {
         try {
             const result = await BandDatabase.connection(this.TABLE_NAME)
                 .select()
