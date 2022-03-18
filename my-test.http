@@ -27,8 +27,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1MThlMTZkLWRkNTAt
 
 {
     "week_day": "sábado",
-    "start_time": 23,
-    "end_time": 25,
+    "start_time": 10,
+    "end_time": 11,
     "band_id": "cc546674-7ac6-4061-be08-57354bd5e5e7"
 
 }
