@@ -19,3 +19,4 @@ app.get("/band", bandController.findBandByIdOrName)
 // Shows
 const showController = new ShowController()
 app.post('/show/register', showController.createShow)
+app.get("/show", showController.getAllShowsByDay)
