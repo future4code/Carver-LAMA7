@@ -3,7 +3,7 @@ import { User } from "../model/User";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase implements UserRepository {
-    protected TABLE_NAME = "Users"
+    protected TABLE_NAME = "Users_Lama"
     insert = async (user: User) => {
         try {
             await BaseDatabase.connection(this.TABLE_NAME)

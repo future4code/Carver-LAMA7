@@ -9,6 +9,7 @@ export class BandBusiness {
     private idGenerator: IdGeneration
     private hashManager: HashManager
     private authentication: Authenticator
+    
     constructor(bandDataImplementation: BandRepository) {
         this.bandDatabase = bandDataImplementation
         this.idGenerator = new IdGeneration()
