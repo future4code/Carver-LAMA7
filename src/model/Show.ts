@@ -1,3 +1,11 @@
+
+
+export enum ShowDays {
+    SEXTA = 'sexta',
+    SABADO = 'sábado',
+    DOMINGO = 'Domingo'
+}
+
 export type AddShowDTO = {
     week_day: string,
     start_time: number,
