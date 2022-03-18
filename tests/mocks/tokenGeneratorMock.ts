@@ -5,10 +5,10 @@ export class TokenGeneratorMock{
     public generate = (input: AuthenticationData): string => {
         return "token_mockado"
     }
-    public verify(token: string) {
+    public getTokenData(token: string) {
         return{
             id: "id_mockado",
-            role: USER_ROLES.NORMAL
+            role: USER_ROLES.ADMIN
         }
     }
 } 

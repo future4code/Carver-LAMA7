@@ -2,11 +2,15 @@ import { Request, Response } from "express"
 import { BandBusiness } from "../business/BandBusiness"
 import { BandDatabase } from "../data/BandDatabase"
 import { RegisterBandDTO } from "../model/Band"
+import { Authenticator } from "../services/Authenticator"
+import { IdGeneration } from "../services/IdGenerator"
 
 export class BandController {
     private bandBusiness: BandBusiness
     constructor() {
         this.bandBusiness = new BandBusiness(
+            new IdGeneration(),
+            new Authenticator(),
             new BandDatabase()
         )
     }
@@ -33,7 +37,7 @@ export class BandController {
                     res.status(401).send(error.message)
                     break
                 case "Esta banda já existe":
-                    res.status(409).send(error.message)
+                    res.status(400).send(error.message)
                     break
                 default:
                     res.status(400).send(error.message)
