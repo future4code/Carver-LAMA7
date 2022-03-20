@@ -13,7 +13,7 @@ const bandDatabaseMock = new BandBusiness(
     new BandDatabaseMock() as any
 )
 
-describe("Teste end point FindBandByName", () => {
+describe("Teste end point registerBand", () => {
 
     test("Retornar falha caso o input name estiver vazio", async () => {
         expect.assertions
