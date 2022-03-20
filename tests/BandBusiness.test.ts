@@ -15,13 +15,13 @@ const bandDatabaseMock = new BandBusiness(
 
 describe("Teste end point registerBand", () => {
 
-    test("Retornar falha caso o input name estiver vazio", async () => {
+    test("Retorna falha caso a banda já exista", async () => {
         expect.assertions
         try {
             const band: RegisterBandDTO = {
-                name: "",
-                music_genre: "Tester",
-                responsible: "Tester"
+                name: "name_mockado",
+                music_genre: "zcxx",
+                responsible: "Tvvvz"
             }
             await bandDatabaseMock.register(band, "token")
         } catch (error: any) {
