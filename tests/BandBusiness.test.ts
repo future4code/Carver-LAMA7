@@ -13,19 +13,18 @@ const bandDatabaseMock = new BandBusiness(
     new BandDatabaseMock() as any
 )
 
-describe("Testing endpoint BandBusiness findBandByName", () => {
+describe("Teste end point registerBand", () => {
 
-    test("Should catch error when name band is not registered", async () => {
+    test("Retorna falha caso a banda já exista", async () => {
         expect.assertions
         try {
             const band: RegisterBandDTO = {
                 name: "name_mockado",
-                music_genre: "music_mockado",
-                responsible: "responsible_mockado"
+                music_genre: "zcxx",
+                responsible: "Tvvvz"
             }
             await bandDatabaseMock.register(band, "token")
         } catch (error: any) {
-            console.log("asdfasfasdf", error.message)
             expect(error.message).toEqual("Esta banda já existe")
             expect(error.code).toBe(409)
         }
