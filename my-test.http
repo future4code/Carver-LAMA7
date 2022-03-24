@@ -1,0 +1,46 @@
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Igor M",
+    "email": "igorm@gmail.com",
+    "password": "123456",
+     "role": "ADMIN"
+}
+
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "igorm@gmail.com",
+    "password": "123456"
+}
+
+###
+
+POST http://localhost:3003/show/register
+Content-Type:  application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1MThlMTZkLWRkNTAtNGU0ZC05ZGYzLWU4NWI1MDJlNmRiZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NzYxMTU4NywiZXhwIjoxNjQ3Njk3OTg3fQ.pqEiHVM3ii1_BEdzZCTQPdadVw7c3y98IqDUujc7rg0
+
+{
+    "week_day": "sábado",
+    "start_time": 10,
+    "end_time": 11,
+    "band_id": "cc546674-7ac6-4061-be08-57354bd5e5e7"
+
+}
+
+###
+POST http://localhost:3003/band/register
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1MThlMTZkLWRkNTAtNGU0ZC05ZGYzLWU4NWI1MDJlNmRiZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY0NzYxMjg1NSwiZXhwIjoxNjQ3Njk5MjU1fQ.EYbngN9urMyEGKc-pUIxmcrj-qJLY8WBZJlWJ6QJhBk
+
+{
+    "name": "Queens",
+    "music_genre": "Rock",
+    "responsible": "Igor"
+}
+
